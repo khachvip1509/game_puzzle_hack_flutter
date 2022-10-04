@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.game_puzzle_hack_flutter">
    <application
-       android:name="androidx.multidex.MultiDexApplication"
         android:label="game_puzzle_hack_flutter"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

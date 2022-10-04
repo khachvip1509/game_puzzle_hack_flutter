@@ -9,6 +9,21 @@ import '../../domain/repositories/images_repository.dart';
 
 const puzzleOptions = <PuzzleImage>[
   PuzzleImage(
+    name: 'vk',
+    assetPath: 'assets/animals/vk.png',
+    soundPath: '',
+  ),
+  PuzzleImage(
+    name: 'Family',
+    assetPath: 'assets/animals/family.png',
+    soundPath: '',
+  ),
+  PuzzleImage(
+    name: 'TramAnh',
+    assetPath: 'assets/animals/tramanh.png',
+    soundPath: '',
+  ),
+  PuzzleImage(
     name: 'Numeric',
     assetPath: 'assets/images/numeric-puzzle.png',
     soundPath: '',
