@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:math';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,12 +14,21 @@ import 'package:game_puzzle_hack_flutter/src/ui/pages/game/widgets/time_and_move
 import 'package:game_puzzle_hack_flutter/src/ui/pages/game/widgets/winner_dialog.dart';
 import 'package:provider/provider.dart';
 
+import '../../../data/repositories_impl/images_repository_impl.dart';
+import '../../../domain/models/puzzle_image.dart';
 import '../../utils/responsive.dart';
 import 'controller/game_controller.dart';
 
-class GameView extends StatelessWidget {
+class GameView extends StatefulWidget {
   const GameView({Key? key}) : super(key: key);
 
+    @override
+    State<GameView> createState() => _GameViewState();
+
+}
+class _GameViewState extends State<GameView> {
+  bool isShow = false;
+  String pathImage= "";
   void _onKeyBoardEvent(BuildContext context, RawKeyEvent event) {
     if (event is RawKeyDownEvent) {
       final moveTo = event.logicalKey.keyLabel.moveTo;
@@ -35,12 +46,12 @@ class GameView extends StatelessWidget {
       create: (_) {
         final controller = GameController();
         controller.onFinish.listen(
-          (_) {
+              (_) {
             Timer(
               const Duration(
                 milliseconds: 200,
               ),
-              () {
+                  () {
                 showWinnerDialog(
                   context,
                   moves: controller.state.moves,
@@ -70,19 +81,30 @@ class GameView extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const GameAppBar(),
+                    GameAppBar(callback:(path){
+                      pathImage= path;
+                      puzzleOptions.add(
+                          PuzzleImage(
+                            name: "ken",
+                            assetPath: path,
+                            soundPath: '',)
+                      );
+                      setState(() {
+
+                      });
+                     }),
                     Expanded(
                       child: LayoutBuilder(
                         builder: (_, constraints) {
                           final height = constraints.maxHeight;
                           final puzzleHeight =
-                              (isPortrait ? height * 0.45 : height * 0.5)
-                                  .clamp(250, 700)
-                                  .toDouble();
+                          (isPortrait ? height * 0.45 : height * 0.5)
+                              .clamp(250, 700)
+                              .toDouble();
                           final optionsHeight =
-                              (isPortrait ? height * 0.25 : height * 0.2)
-                                  .clamp(120, 200)
-                                  .toDouble();
+                          (isPortrait ? height * 0.25 : height * 0.2)
+                              .clamp(120, 200)
+                              .toDouble();
 
                           return SizedBox(
                             height: height,
@@ -126,4 +148,5 @@ class GameView extends StatelessWidget {
       ),
     );
   }
+
 }

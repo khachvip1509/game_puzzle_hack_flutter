@@ -29,6 +29,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  image_picker: ^0.8.6
+  meta: ^1.3.0
   flutter:
     sdk: flutter
 
@@ -48,6 +50,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   url_strategy: ^0.2.0
   rive: ^0.8.1
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
@@ -80,7 +83,7 @@ flutter:
     - assets/images/dash.png
     - assets/images/hero-dash.png
     - assets/images/relax-dash.png
-    - assets/images/numeric-puzzle.png
+    #- assets/images/numeric-puzzle2.png
     - assets/rive/winner.riv
     - assets/sounds/
     - assets/animals/

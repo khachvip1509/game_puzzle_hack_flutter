@@ -4,4 +4,5 @@ class Routes {
   static const splash = '/';
   static const game = '/game';
   static const  privacy = '/privacy';
+  static const takePhoto = '/takephoto' ;
 }

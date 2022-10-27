@@ -2,10 +2,10 @@ import 'package:equatable/equatable.dart';
 
 class PuzzleImage extends Equatable {
   final String name;
-  final String assetPath;
+   String assetPath;
   final String soundPath;
 
-  const PuzzleImage({
+   PuzzleImage({
     required this.name,
     required this.assetPath,
     required this.soundPath,

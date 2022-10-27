@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game_puzzle_hack_flutter/src/ui/routes/app_routes.dart';
 import 'package:game_puzzle_hack_flutter/src/ui/routes/routes.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
 import '../generated/l10n.dart';
 import 'ui/global/controllers/theme_controller.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => ThemeController(),
       child: Consumer<ThemeController>(
-        builder: (_, controller, __) => MaterialApp(
+        builder: (_, controller, __) => GetMaterialApp(
           builder: (_, page) => MaxTextScaleFactor(
             child: page!,
           ),

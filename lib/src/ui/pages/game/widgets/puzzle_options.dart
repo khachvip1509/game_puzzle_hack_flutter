@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -107,9 +108,8 @@ class _PuzzleOptionsState extends State<PuzzleOptions>
                       borderRadius: BorderRadius.circular(10),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Image.asset(
-                          item.assetPath,
-                        ),
+                        child:  item.assetPath.contains("/data/user/") ?Image.file(File(item.assetPath)):Image.asset(item.assetPath??"",)
+                        ,
                       ),
                     ),
                   ),
